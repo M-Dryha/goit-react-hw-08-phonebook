@@ -9,11 +9,13 @@ import s from './listContacts.module.css';
 const ListContacts = () => {
   const { data, isLoading } = useGetContactsQuery();
   const filter = useSelector(state => state.filter);
+  console.log('list', data);
 
   const normalizedFilter = filter.toLowerCase();
   const visibleContact = data?.filter(f =>
     f.name.toLowerCase().includes(normalizedFilter)
   );
+  console.log('visib', visibleContact);
   return (
     <>
       <ContactForm />
@@ -30,8 +32,8 @@ const ListContacts = () => {
           />
         )}
         {data &&
-          visibleContact.map(({ id, name, phone }) => (
-            <ContactElem key={id} name={name} phone={phone} id={id} />
+          visibleContact.map(({ id, name, number }) => (
+            <ContactElem key={id} name={name} number={number} id={id} />
           ))}
       </ul>
     </>

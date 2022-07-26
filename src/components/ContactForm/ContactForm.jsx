@@ -8,11 +8,11 @@ import {
 import s from './contactForm.module.css';
 
 export default function ContactForm() {
-  const [addContacts, { isLoading, isSuccess }] = useAddContactMutation();
+  const [addContacts, { isLoading }] = useAddContactMutation();
   console.log(useAddContactMutation());
   const { data: contacts } = useGetContactsQuery();
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
 
   const handleNameChange = e => {
     const { name, value } = e.currentTarget;
@@ -22,8 +22,8 @@ export default function ContactForm() {
         setName(value);
         break;
 
-      case 'phone':
-        setPhone(value);
+      case 'number':
+        setNumber(value);
         break;
 
       default:
@@ -33,7 +33,7 @@ export default function ContactForm() {
 
   const fetchNewContact = async e => {
     try {
-      await addContacts({ name, phone });
+      await addContacts({ name, number });
       toast.success('Contact added successfully');
     } catch (err) {
       toast.error('Error');
@@ -52,7 +52,7 @@ export default function ContactForm() {
     } else {
       fetchNewContact();
       setName('');
-      setPhone('');
+      setNumber('');
     }
   };
 
@@ -77,11 +77,11 @@ export default function ContactForm() {
         <input
           className={s.input}
           type="tel"
-          name="phone"
+          name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
-          value={phone}
+          value={number}
           onChange={handleNameChange}
         />
       </label>

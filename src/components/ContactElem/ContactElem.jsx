@@ -4,16 +4,16 @@ import PropTypes from 'prop-types';
 import { useDeleteContactMutation } from '../../redux/myContactsSlice';
 import s from './ContactElem.module.css';
 
-const ContactElem = ({ id, name, phone }) => {
+const ContactElem = ({ id, name, number }) => {
   const [deleteContacts, { isLoading }] = useDeleteContactMutation();
 
   if (isLoading) {
     toast.success('Contact deleted successfully');
   }
   return (
-    <li className={s.itemContact} key={id}>
+    <li className={s.itemContact}>
       <p className={s.contact}>{name}:</p>
-      <p className={s.contact}>{phone}</p>
+      <p className={s.contact}>{number}</p>
       <button
         className={s.button}
         type="button"
@@ -37,7 +37,7 @@ const ContactElem = ({ id, name, phone }) => {
 };
 ContactElem.propTypes = {
   name: PropTypes.string.isRequired,
-  phone: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
 };
 
