@@ -1,14 +1,6 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi } from '@reduxjs/toolkit/query/react';
 import axios from 'axios';
 
-// const token = {
-//   set(token) {
-//     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-//   },
-//   unset() {
-//     axios.defaults.headers.common.Authorization = '';
-//   },
-// };
 const axiosBaseQuery =
   ({ baseUrl } = { baseUrl: '' }) =>
   async ({ url, method, data, params }) => {
@@ -37,7 +29,6 @@ export const сontactApi = createApi({
       if (token) {
         headers.set('authorization', `Bearer ${token}`);
       }
-
       return headers;
     },
   }),
@@ -49,6 +40,7 @@ export const сontactApi = createApi({
           url: 'contacts',
           method: 'get',
         }),
+        // invalidatesTags: ['contacts'],
         providesTags: ['contacts'],
       }),
       addContact: build.mutation({
@@ -103,4 +95,7 @@ export const {
   useGetContactsQuery,
   useAddContactMutation,
   useDeleteContactMutation,
+  useUtilQuery,
 } = сontactApi;
+
+// export default сontactApi;

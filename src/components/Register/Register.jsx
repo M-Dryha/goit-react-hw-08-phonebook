@@ -1,8 +1,16 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import { useSelector, useDispatch } from 'react-redux';
+import { ThreeCircles } from 'react-loader-spinner';
 // import register from '../../redux/auth/auth-operation';
+// import { contactApi } from '../../redux/myContactsSlice';
+import { authSelectors } from '../../redux/auth';
 import AuthOperation from '../../redux/auth/auth-operation';
-// import { useRegisterUserMutation } from '../../redux/auth/registerSlice';
+// import contactApi from '../../redux/myContactsSlice';
+// import { useUtilQuery } from '../../redux/myContactsSlice';
+
 import s from './Register.module.css';
 
 const Register = () => {
@@ -10,7 +18,9 @@ const Register = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // const [registerUser, { isLoading, isSuccess }] = useRegisterUserMutation();
+  // const util = useUtilQuery();
+
+  const isLoading = useSelector(authSelectors.getIsLoggedIn);
 
   const handleNameChange = e => {
     const { name, value } = e.currentTarget;
@@ -52,7 +62,7 @@ const Register = () => {
     //   return;
     // } else {
     // registerNewUser();
-
+    // dispatch(util.invalidateTags(['contacts']));
     dispatch(AuthOperation.register({ name, email, password }));
     setName('');
     setEmail('');
@@ -60,8 +70,24 @@ const Register = () => {
   };
 
   return (
-    <form className={s.form} action="submit" onSubmit={handleSubmit}>
-      <label className={s.label}>
+    // <form className={s.form} action="submit" onSubmit={handleSubmit}>
+    // <section className={s.form}>
+    <Box
+      component="form"
+      sx={{
+        '& .MuiTextField-root': {
+          m: 1,
+          width: '37ch',
+          mr: 'auto',
+          ml: 'auto',
+        },
+      }}
+      noValidate
+      action="submit"
+      onSubmit={handleSubmit}
+      autoComplete="off"
+    >
+      {/* <label className={s.label}>
         <span className={s.formSpan}> Name</span>
         <input
           className={s.input}
@@ -73,37 +99,71 @@ const Register = () => {
           value={name}
           onChange={handleNameChange}
         />
-      </label>
-
-      <label className={s.label}>
-        <span className={s.formSpan}> E-mail</span>
-        <input
-          className={s.input}
-          type="email"
-          name="email"
-          // pattern=".+@globex\.com"
-          // title="E-mail "
-          // required
-          value={email}
-          onChange={handleNameChange}
-        />
-      </label>
-      <label className={s.label}>
-        <span className={s.formSpan}> Password</span>
-        <input
-          className={s.input}
-          type="text"
-          name="password"
-          //   title="E-mail "
-          // required
-          value={password}
-          onChange={handleNameChange}
-        />
-      </label>
-      <button type="submit" className={s.button}>
+      </label> */}
+      <TextField
+        label="Name"
+        type="text"
+        name="name"
+        value={name}
+        onChange={handleNameChange}
+        autoComplete="Name"
+      />
+      {/* <label className={s.label}>
+          <span className={s.formSpan}> E-mail</span>
+          <input
+            className={s.input}
+            type="email"
+            name="email"
+            // pattern=".+@globex\.com"
+            // title="E-mail "
+            // required
+            value={email}
+            onChange={handleNameChange}
+          />
+        </label> */}
+      <TextField
+        label="Email"
+        type="email"
+        name="email"
+        value={email}
+        onChange={handleNameChange}
+        autoComplete="Email"
+      />
+      {/* <label className={s.label}>
+          <span className={s.formSpan}> Password</span>
+          <input
+            className={s.input}
+            type="text"
+            name="password"
+            //   title="E-mail "
+            // required
+            value={password}
+            onChange={handleNameChange}
+          />
+        </label> */}
+      <TextField
+        label="Password"
+        type="text"
+        name="password"
+        value={password}
+        onChange={handleNameChange}
+        autoComplete="Password"
+      />
+      {/* <button type="submit" className={s.button}>
         Register
-      </button>
-      {/* {isLoading && (
+      </button> */}
+      <div className={s.button}>
+        <Button
+          // className={s.button}
+          type="submit"
+          variant="contained"
+          size="medium"
+        >
+          Register
+        </Button>
+      </div>
+
+      {isLoading && (
         <ThreeCircles
           height="50"
           width="50"
@@ -112,8 +172,9 @@ const Register = () => {
           middleCircleColor="violet"
           innerCircleColor="grey"
         />
-      )} */}
-    </form>
+      )}
+    </Box>
+    // </section>
   );
 };
 

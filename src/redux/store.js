@@ -35,41 +35,34 @@ const rootReducer = combineReducers({
   [сontactApi.reducerPath]: сontactApi.reducer,
   // [authSlice.reducerPath]: authSlice.register,
   filter: myFilterSlice,
-  register: authSlice,
+  auth: authSlice,
 });
 
 const persistConfig = {
-  key: 'auth',
+  key: 'root',
   storage,
   // blacklist: ['filter'],
-  whitelist: ['token'],
+  // whitelist: ['token'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-//  const getDefaultMiddleware = {
-//       serializableCheck: {
-//         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-//       }
-
 export const store = configureStore({
-  // reducer: {
-  //   auth: persistReducer(persistConfig, rootReducer),
-  //   // filter: myFilterSlice,
-  // },
   reducer: persistedReducer,
-  // middleware: getDefaultMiddleware =>
-  //   getDefaultMiddleware({
-  //     serializableCheck: {
-  //       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-  //     },
-  //   }),
-
   middleware: getDefaultMiddleware => [
-    ...getDefaultMiddleware(),
+    ...getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
     сontactApi.middleware,
-    // authSlice.middleware,
   ],
+
+  // middleware: getDefaultMiddleware => [
+  //   ...getDefaultMiddleware(),
+  //   сontactApi.middleware,
+  //   //     // registerApi.middleware,
+  // ],
 });
 
 export const persistor = persistStore(store);

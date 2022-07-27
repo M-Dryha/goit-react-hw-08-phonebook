@@ -8,12 +8,6 @@ const Link = styled(NavLink)`
   }
 `;
 
-// const Nav = styled.nav`
-//   display: flex;
-
-//   justify-content: space-between;
-// `;
-
 const AuthNav = () => {
   return (
     <div>
