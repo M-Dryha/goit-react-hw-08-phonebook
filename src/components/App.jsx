@@ -9,34 +9,38 @@ import Register from './Register';
 import Login from './Login';
 import HeaderAppBar from './AppBar';
 import PrivateRoute from './PrivateRoute';
-// import PublicRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
 
 export const App = () => {
   return (
     <section className="section">
       <HeaderAppBar />
       <Routes>
-        <Route path="/" element={<HomeView />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-
-        {/* <Route
-              path="/login"
-              element={
-                <PublicRoute path="/login" redirectTo="/contacts" restricted>
-                  <LoginView />
-                </PublicRoute>
-              }
-            /> */}
-
-        {/* <Route
-          path="/register"
+        <Route
+          path="/"
           element={
-            <PublicRoute path="/register" redirectTo="/contacts" restricted>
+            <PublicRoute path="/">
               <HomeView />
             </PublicRoute>
           }
-        />  */}
+        />
+        <Route
+          path="/login"
+          element={
+            <PublicRoute path="/login" redirectTo="/contacts" restricted>
+              <Login />
+            </PublicRoute>
+          }
+        />
+
+        <Route
+          path="/register"
+          element={
+            <PublicRoute path="/register" redirectTo="/contacts" restricted>
+              <Register />
+            </PublicRoute>
+          }
+        />
         <Route
           path="/contacts"
           element={
