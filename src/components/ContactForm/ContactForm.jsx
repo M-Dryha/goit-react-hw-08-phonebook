@@ -11,9 +11,8 @@ import {
 import s from './contactForm.module.css';
 
 export default function ContactForm() {
-  // const [addContacts, { isLoading }] = useAddContactMutation();
+
   const [addContacts] = useAddContactMutation();
-  // console.log(useAddContactMutation());
   const { data: contacts } = useGetContactsQuery();
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');

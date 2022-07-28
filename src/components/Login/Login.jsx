@@ -1,17 +1,42 @@
 import { useDispatch } from 'react-redux';
-// import styled from 'styled-components';
+import { Container } from '@mui/material';
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import s from './Login.module.css';
 import AuthOperation from '../../redux/auth/auth-operation';
+import Background from '../../pictures/myatnii-fon-27.jpg';
 
-// const Container = styled.div`
-//     border: '1px solid gray',
-//   }
-// `;
-
+const theme = createTheme({
+  palette: {
+    primary: {
+      light: '#c2185b',
+      main: '#f06292',
+      dark: '#f8bbd0',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: '#ff7961',
+      main: '#f44336',
+      dark: '#ba000d',
+      contrastText: '#000',
+    },
+  },
+});
+const styles = {
+  Container: {
+    backgroundImage: `url(${Background})
+    `,
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    height: '100vh',
+    paddingTop: '15px',
+  },
+};
 const Login = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
@@ -37,62 +62,60 @@ const Login = () => {
     setPassword('');
   };
   return (
-    // <Container>
-    <Box
-      action="submit"
-      component="form"
-      sx={{
-        '& .MuiTextField-root': {
-          m: 1,
-          width: '37ch',
-          // mr: 'auto',
-          // ml: 'auto',
-          // border: '1px solid gray',
-          borderRadius: '5px',
-          // padding: '10px',
-          display: 'flex',
-          flexDirection: 'column',
-          w: '350px',
-          margin: '20px auto',
-        },
-      }}
-      noValidate
-      // className={s.form}
-      onSubmit={onLoginSubmit}
-      autoComplete="off"
-    >
-      <TextField
-        label="Email"
-        type="email"
-        name="email"
-        value={email}
-        onChange={handleNameChange}
-        autoComplete="Email"
-      />
-      <TextField
-        id="2"
-        label="Password"
-        type="text"
-        name="password"
-        value={password}
-        onChange={handleNameChange}
-        autoComplete="Password"
-      />
-      <div className={s.button}>
-        <Button
-          type="submit"
-          variant="contained"
-          size="medium"
+    <Container style={styles.Container}>
+      <ThemeProvider theme={theme}>
+        <Box
+          action="submit"
+          component="form"
           sx={{
-            w: '100px',
-            margin: '0 auto',
+            '& .MuiTextField-root': {
+              m: 1,
+              width: '37ch',
+              borderRadius: '5px',
+              display: 'flex',
+              flexDirection: 'column',
+              w: '350px',
+              margin: '20px auto',
+            },
           }}
+          noValidate
+          // className={s.form}
+          onSubmit={onLoginSubmit}
+          autoComplete="off"
         >
-          Log In
-        </Button>
-      </div>
-    </Box>
-    // </Container>
+          <TextField
+            label="Email"
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleNameChange}
+            autoComplete="Email"
+          />
+          <TextField
+            id="2"
+            label="Password"
+            type="text"
+            name="password"
+            value={password}
+            onChange={handleNameChange}
+            autoComplete="Password"
+          />
+          <div className={s.button}>
+            <Button
+              type="submit"
+              variant="contained"
+              size="medium"
+              sx={{
+                w: '100px',
+                margin: '0 auto',
+              }}
+            >
+              Log In
+            </Button>
+          </div>
+        </Box>
+      </ThemeProvider>
+    </Container>
   );
 };
 

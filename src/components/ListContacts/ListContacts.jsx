@@ -1,11 +1,8 @@
 import { useSelector } from 'react-redux';
 import { ThreeCircles } from 'react-loader-spinner';
-
 import { Grid } from '@mui/material';
 import { useGetContactsQuery } from '../../redux/myContactsSlice';
 import ContactElem from '../ContactElem';
-// import ContactForm from '../ContactForm';
-// import Filter from '../Filter';
 
 const ListContacts = () => {
   const { data, isLoading } = useGetContactsQuery();

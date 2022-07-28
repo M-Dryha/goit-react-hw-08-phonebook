@@ -16,7 +16,6 @@ import { useDeleteContactMutation } from '../../redux/myContactsSlice';
 
 const ContactElem = ({ id, name, number }) => {
   const [deleteContacts, { isLoading }] = useDeleteContactMutation();
-
   if (isLoading) {
     toast.success('Contact deleted successfully');
   }
@@ -24,7 +23,7 @@ const ContactElem = ({ id, name, number }) => {
     <Grid item xs={6}>
       <Card sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <CardContent sx={{ display: 'flex' }}>
-          <IconButton>
+          <IconButton color={'primary'}>
             <EdgesensorLowIcon />
           </IconButton>
 
