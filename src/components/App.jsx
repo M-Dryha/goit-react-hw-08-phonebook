@@ -1,31 +1,33 @@
 import { ToastContainer } from 'react-toastify';
 import { Routes, Route } from 'react-router-dom';
+// import React, { useEffect, Suspense, lazy } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
-import ListContacts from './ListContacts';
+import ContactsView from './ContactsView';
 import HomeView from './HomeView';
 import Register from './Register';
 import Login from './Login';
-import AppBar from './AppBar';
+import HeaderAppBar from './AppBar';
 import PrivateRoute from './PrivateRoute';
 // import PublicRoute from './PrivateRoute';
 
 export const App = () => {
   return (
     <section className="section">
-      <AppBar />
+      <HeaderAppBar />
       <Routes>
         <Route path="/" element={<HomeView />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        {/* 
-        <Route
-          path="login"
-          element={
-            <PublicRoute restricted>
-              <Login />
-            </PublicRoute>
-          }
-        /> */}
+
+        {/* <Route
+              path="/login"
+              element={
+                <PublicRoute path="/login" redirectTo="/contacts" restricted>
+                  <LoginView />
+                </PublicRoute>
+              }
+            /> */}
 
         {/* <Route
           path="/register"
@@ -39,7 +41,7 @@ export const App = () => {
           path="/contacts"
           element={
             <PrivateRoute path="/contacts" redirectTo="/login">
-              <ListContacts />
+              <ContactsView />
             </PrivateRoute>
           }
         />

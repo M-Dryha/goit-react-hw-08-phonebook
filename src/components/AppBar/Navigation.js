@@ -1,19 +1,29 @@
 import { NavLink } from 'react-router-dom';
+import HouseSidingIcon from '@mui/icons-material/HouseSiding';
 import styled from 'styled-components';
 
 const Link = styled(NavLink)`
+  padding: 5px;
+  text-decoration: none;
+  color: white;
   margin-right: 30px;
   &.active {
-    color: red;
+    border: 1px solid white;
   }
+`;
+const Navigate = styled.nav`
+  display: flex;
+  justify-content: ;
 `;
 
 const Navigation = () => {
   return (
-    <nav>
-      <Link to="/">Home</Link>
+    <Navigate>
+      <Link to="/">
+        <HouseSidingIcon sx={{ color: 'white' }} />
+      </Link>
       <Link to="/contacts">My Contacts</Link>
-    </nav>
+    </Navigate>
   );
 };
 

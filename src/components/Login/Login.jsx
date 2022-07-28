@@ -1,10 +1,16 @@
 import { useDispatch } from 'react-redux';
+// import styled from 'styled-components';
 import { useState } from 'react';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import s from './Login.module.css';
 import AuthOperation from '../../redux/auth/auth-operation';
+
+// const Container = styled.div`
+//     border: '1px solid gray',
+//   }
+// `;
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -31,56 +37,27 @@ const Login = () => {
     setPassword('');
   };
   return (
-    // <form className={s.form} action="submit" onSubmit={onLoginSubmit}>
-    //   <label className={s.label}>
-    //     <span className={s.formSpan}> E-mail</span>
-    //     <input
-    //       className={s.input}
-    //       type="email"
-    //       name="email"
-    //       // pattern=".+@globex\.com"
-    //       title="E-mail "
-    //       required
-    //       onChange={handleNameChange}
-    //       value={email}
-    //     />
-    //   </label>
-    //   <label className={s.label}>
-    //     <span className={s.formSpan}>Password</span>
-    //     <input
-    //       className={s.input}
-    //       type="text"
-    //       name="password"
-    //       //   pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-    //       title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-    //       required
-    //       onChange={handleNameChange}
-    //       value={password}
-    //     />
-    //   </label>
-    //   <button type="submit" className={s.button}>
-    //     Log In
-    //   </button>
-    //   {/* {isLoading && (
-    //     <ThreeCircles
-    //       height="50"
-    //       width="50"
-    //       color="violet"
-    //       outerCircleColor="grey"
-    //       middleCircleColor="violet"
-    //       innerCircleColor="grey"
-    //     />
-    //   )} */}
-    // </form>
-
-    // <section className={s.form}>
+    // <Container>
     <Box
       action="submit"
       component="form"
       sx={{
-        '& .MuiTextField-root': { m: 1, width: '37ch', mr: 'auto', ml: 'auto' },
+        '& .MuiTextField-root': {
+          m: 1,
+          width: '37ch',
+          // mr: 'auto',
+          // ml: 'auto',
+          // border: '1px solid gray',
+          borderRadius: '5px',
+          // padding: '10px',
+          display: 'flex',
+          flexDirection: 'column',
+          w: '350px',
+          margin: '20px auto',
+        },
       }}
       noValidate
+      // className={s.form}
       onSubmit={onLoginSubmit}
       autoComplete="off"
     >
@@ -103,16 +80,19 @@ const Login = () => {
       />
       <div className={s.button}>
         <Button
-          // className={s.button}
           type="submit"
           variant="contained"
           size="medium"
+          sx={{
+            w: '100px',
+            margin: '0 auto',
+          }}
         >
           Log In
         </Button>
       </div>
     </Box>
-    // </section>
+    // </Container>
   );
 };
 

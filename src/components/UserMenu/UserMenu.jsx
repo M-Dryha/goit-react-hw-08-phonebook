@@ -1,4 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { Typography } from '@mui/material';
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import { authSelectors } from '../../redux/auth';
 import styled from 'styled-components';
 import AuthOperation from '../../redux/auth/auth-operation';
@@ -14,13 +16,10 @@ const UserMenu = () => {
     dispatch(AuthOperation.logOut());
   };
   const name = useSelector(authSelectors.getUserName);
-  console.log('name', name);
   return (
     <Wrapper>
-      <span>Welcome,{name} </span>
-      <button type="button" onClick={onLogOut}>
-        Logout
-      </button>
+      <Typography sx={{ mr: '25px' }}>Welcome,{name} </Typography>
+      <LogoutOutlinedIcon onClick={onLogOut} />
     </Wrapper>
   );
 };

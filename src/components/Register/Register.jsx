@@ -43,25 +43,8 @@ const Register = () => {
     }
   };
 
-  // const registerNewUser = async e => {
-  //   try {
-  //     await registerUser({ name, email, password });
-  //     console.log({ name, email, password });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
   const handleSubmit = e => {
     e.preventDefault();
-    // const nameContact = contacts.find(
-    //   c => c.name.toLowerCase() === name.toLowerCase()
-    // );
-    // if (nameContact) {
-    //   toast.error(`${name} is already in contact`);
-    //   return;
-    // } else {
-    // registerNewUser();
     // dispatch(util.invalidateTags(['contacts']));
     dispatch(AuthOperation.register({ name, email, password }));
     setName('');
@@ -70,16 +53,17 @@ const Register = () => {
   };
 
   return (
-    // <form className={s.form} action="submit" onSubmit={handleSubmit}>
-    // <section className={s.form}>
     <Box
       component="form"
       sx={{
         '& .MuiTextField-root': {
           m: 1,
           width: '37ch',
-          mr: 'auto',
-          ml: 'auto',
+          borderRadius: '5px',
+          display: 'flex',
+          flexDirection: 'column',
+          w: '350px',
+          margin: '20px auto',
         },
       }}
       noValidate
@@ -87,19 +71,6 @@ const Register = () => {
       onSubmit={handleSubmit}
       autoComplete="off"
     >
-      {/* <label className={s.label}>
-        <span className={s.formSpan}> Name</span>
-        <input
-          className={s.input}
-          type="text"
-          name="name"
-          // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          // title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          // required
-          value={name}
-          onChange={handleNameChange}
-        />
-      </label> */}
       <TextField
         label="Name"
         type="text"

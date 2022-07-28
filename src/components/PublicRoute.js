@@ -10,16 +10,16 @@ export default function PublicRoute({
   const location = useLocation();
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   const shouldRedirect = isLoggedIn && restricted;
-  //   return shouldRedirect ? (
-  //     <Navigate to="/" state={{ from: location }} replace />
-  //   ) : (
-  //     children
-  //   );
-  if (shouldRedirect) {
-    return <Navigate to="contacts" state={{ from: location }} replace />;
-  } else {
-    return children;
-  }
+  return shouldRedirect ? (
+    <Navigate to="/" state={{ from: location }} replace />
+  ) : (
+    children
+  );
+  // if (shouldRedirect) {
+  //   return <Navigate to="contacts" state={{ from: location }} replace />;
+  // } else {
+  //   return children;
+  // }
 }
 
 // export default function PublicRoute({

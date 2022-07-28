@@ -2,9 +2,12 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Link = styled(NavLink)`
+  padding: 5px;
+  text-decoration: none;
+  color: white;
   margin-right: 30px;
   &.active {
-    color: red;
+    border: 1px solid white;
   }
 `;
 
