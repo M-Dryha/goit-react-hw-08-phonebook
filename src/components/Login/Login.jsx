@@ -61,7 +61,7 @@ const Login = () => {
   const onLoginSubmit = e => {
     e.preventDefault();
     dispatch(AuthOperation.logIn({ email, password }));
-    console.log(user);
+    // console.log(user);
     setEmail('');
     setPassword('');
 
