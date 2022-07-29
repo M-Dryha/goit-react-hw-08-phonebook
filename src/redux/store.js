@@ -1,4 +1,4 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import {
   persistStore,
   persistReducer,
@@ -28,40 +28,66 @@ import authSlice from '././auth/authSlice';
 //     ...getDefaultMiddleware(),
 //     сontactApi.middleware,
 //     // registerApi.middleware,
-//   ],
+//   ],np
 // });
 
-const rootReducer = combineReducers({
-  [сontactApi.reducerPath]: сontactApi.reducer,
-  // [authSlice.reducerPath]: authSlice.register,
-  filter: myFilterSlice,
-  auth: authSlice,
-});
+// const rootReducer = combineReducers({
+//   [сontactApi.reducerPath]: сontactApi.reducer,
+//   // [authSlice.reducerPath]: authSlice.register,
+//   filter: myFilterSlice,
+//   auth: authSlice,
+// });
 
-const persistConfig = {
-  key: 'root',
+// const persistConfig = {
+//   key: 'root',
+//   storage,
+//   // whitelist: ['token'],
+// };
+
+// const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+// export const store = configureStore({
+//   reducer: persistedReducer,
+//   middleware: getDefaultMiddleware => [
+//     ...getDefaultMiddleware({
+//       serializableCheck: {
+//         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+//       },
+//     }),
+//     сontactApi.middleware,
+//   ],
+
+//   // middleware: getDefaultMiddleware => [
+//   //   ...getDefaultMiddleware(),
+//   //   сontactApi.middleware,
+//   //   //     // registerApi.middleware,
+//   // ],
+// });
+
+// export const persistor = persistStore(store);
+const authPersistConfig = {
+  key: 'auth',
   storage,
-  // whitelist: ['token'],
+  whitelist: ['token'],
 };
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+const middleware = [
+  ...getDefaultMiddleware({
+    serializableCheck: {
+      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+    },
+  }),
+  сontactApi.middleware,
+];
 
 export const store = configureStore({
-  reducer: persistedReducer,
-  middleware: getDefaultMiddleware => [
-    ...getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }),
-    сontactApi.middleware,
-  ],
-
-  // middleware: getDefaultMiddleware => [
-  //   ...getDefaultMiddleware(),
-  //   сontactApi.middleware,
-  //   //     // registerApi.middleware,
-  // ],
+  reducer: {
+    [сontactApi.reducerPath]: сontactApi.reducer,
+    filter: myFilterSlice,
+    auth: persistReducer(authPersistConfig, authSlice),
+  },
+  middleware,
+  devTools: process.env.NODE_ENV === 'development',
 });
 
 export const persistor = persistStore(store);

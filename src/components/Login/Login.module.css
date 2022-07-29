@@ -1,45 +1,4 @@
-/* form {
-  border: 1px solid gray;
-  border-radius: 5px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  width: 350px;
-  margin: 40px auto;
-}
-
-.label {
-  margin-bottom: 15px;
-  display: flex;
-  flex-direction: column;
-}
-
-.input {
-  width: 200px;
-  padding: 5px;
-} */
-
-/* .button {
-  width: 100px;
-  padding: 5px;
-  border-radius: 3px;
-  margin-bottom: 5px;
-} */
 .button {
   width: 100px;
   margin: 10px auto;
-  /* padding: 5px;
-  border-radius: 3px;
-  margin-bottom: 5px; */
 }
-
-/* .button:hover,
-.button:focus {
-  background-color: pink;
-} */
-
-/* .formSpan {
-  margin-bottom: 10px;
-  font-size: 18px;
-  font-weight: 600;
-} */

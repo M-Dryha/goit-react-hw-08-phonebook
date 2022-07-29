@@ -10,7 +10,7 @@ import { ThreeCircles } from 'react-loader-spinner';
 // import register from '../../redux/auth/auth-operation';
 // import { contactApi } from '../../redux/myContactsSlice';
 import { authSelectors } from '../../redux/auth';
-import AuthOperation from '../../redux/auth/auth-operation';
+import AuthOperations from '../../redux/auth/auth-operation';
 import Background from '../../pictures/myatnii-fon-27.jpg';
 
 // import contactApi from '../../redux/myContactsSlice';
@@ -75,7 +75,7 @@ const Register = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(AuthOperation.register({ name, email, password }));
+    dispatch(AuthOperations.register({ name, email, password }));
     setName('');
     setEmail('');
     setPassword('');

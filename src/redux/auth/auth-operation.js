@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
@@ -15,9 +16,11 @@ const token = {
 const register = createAsyncThunk('auth/register', async credentials => {
   try {
     const { data } = await axios.post('users/signup', credentials);
-    token.set(data.register.token);
+    token.set(data.token);
+    return data;
   } catch (error) {
-    console.log(error);
+    console.error(error);
+    toast.error(' Something went wrong, try again');
   }
 });
 
@@ -27,7 +30,8 @@ const logIn = createAsyncThunk('auth/login', async credentials => {
     token.set(data.token);
     return data;
   } catch (error) {
-    console.log(error);
+    console.error(error);
+    toast.error(' Something went wrong, try again');
   }
 });
 
