@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Container } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
 // import { toast } from 'react-toastify';
@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import s from './Login.module.css';
-import { authSelectors } from '../../redux/auth';
+// import { authSelectors } from '../../redux/auth';
 import AuthOperation from '../../redux/auth/auth-operation';
 import Background from '../../pictures/myatnii-fon-27.jpg';
 
@@ -41,7 +41,7 @@ const styles = {
 };
 const Login = () => {
   const dispatch = useDispatch();
-  const user = useSelector(authSelectors.getUserName);
+  // const user = useSelector(authSelectors.getUserName);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
