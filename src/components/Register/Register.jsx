@@ -7,14 +7,9 @@ import { ThemeProvider } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import { useSelector, useDispatch } from 'react-redux';
 import { ThreeCircles } from 'react-loader-spinner';
-// import register from '../../redux/auth/auth-operation';
-// import { contactApi } from '../../redux/myContactsSlice';
 import { authSelectors } from '../../redux/auth';
 import AuthOperations from '../../redux/auth/auth-operation';
 import Background from '../../pictures/myatnii-fon-27.jpg';
-
-// import contactApi from '../../redux/myContactsSlice';
-// import { useUtilQuery } from '../../redux/myContactsSlice';
 
 import s from './Register.module.css';
 const theme = createTheme({
@@ -76,9 +71,9 @@ const Register = () => {
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(AuthOperations.register({ name, email, password }));
-    setName('');
-    setEmail('');
-    setPassword('');
+    // setName('');
+    // setEmail('');
+    // setPassword('');
   };
 
   return (
@@ -109,6 +104,7 @@ const Register = () => {
             value={name}
             onChange={handleNameChange}
             autoComplete="Name"
+            required
           />
           <TextField
             label="Email"
@@ -117,6 +113,7 @@ const Register = () => {
             value={email}
             onChange={handleNameChange}
             autoComplete="Email"
+            required
           />
           <TextField
             label="Password"
@@ -125,6 +122,7 @@ const Register = () => {
             value={password}
             onChange={handleNameChange}
             autoComplete="Password"
+            required
           />
 
           <div className={s.button}>

@@ -1,14 +1,12 @@
 import { useDispatch } from 'react-redux';
 import { Container } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
-// import { toast } from 'react-toastify';
 import { ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import s from './Login.module.css';
-// import { authSelectors } from '../../redux/auth';
 import AuthOperation from '../../redux/auth/auth-operation';
 import Background from '../../pictures/myatnii-fon-27.jpg';
 
@@ -61,18 +59,8 @@ const Login = () => {
   const onLoginSubmit = e => {
     e.preventDefault();
     dispatch(AuthOperation.logIn({ email, password }));
-    // console.log(user);
-    setEmail('');
-    setPassword('');
-
-    // if () {
-    //   console.log(user);
-    //   setEmail('');
-    //   setPassword('');
-    //   return;
-    // } else {
-    //   toast.error('Ooops, try again');
-    // }
+    // setEmail('');
+    // setPassword('');
   };
 
   return (
