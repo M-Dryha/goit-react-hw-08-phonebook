@@ -1,33 +1,33 @@
 {
   "files": {
     "main.css": "/goit-react-hw-08-phonebook/static/css/main.a7fe8503.css",
-    "main.js": "/goit-react-hw-08-phonebook/static/js/main.01ffec5d.js",
+    "main.js": "/goit-react-hw-08-phonebook/static/js/main.0b0aaa3b.js",
     "static/js/127.5780a379.chunk.js": "/goit-react-hw-08-phonebook/static/js/127.5780a379.chunk.js",
     "static/css/775.de4953c7.chunk.css": "/goit-react-hw-08-phonebook/static/css/775.de4953c7.chunk.css",
-    "static/js/775.e3030356.chunk.js": "/goit-react-hw-08-phonebook/static/js/775.e3030356.chunk.js",
-    "static/css/294.5654e498.chunk.css": "/goit-react-hw-08-phonebook/static/css/294.5654e498.chunk.css",
-    "static/js/294.2ac4e8ca.chunk.js": "/goit-react-hw-08-phonebook/static/js/294.2ac4e8ca.chunk.js",
-    "static/css/264.76e9f93c.chunk.css": "/goit-react-hw-08-phonebook/static/css/264.76e9f93c.chunk.css",
-    "static/js/264.86368e8d.chunk.js": "/goit-react-hw-08-phonebook/static/js/264.86368e8d.chunk.js",
+    "static/js/775.26cfbc3f.chunk.js": "/goit-react-hw-08-phonebook/static/js/775.26cfbc3f.chunk.js",
+    "static/css/294.d95e9149.chunk.css": "/goit-react-hw-08-phonebook/static/css/294.d95e9149.chunk.css",
+    "static/js/294.9317ddf4.chunk.js": "/goit-react-hw-08-phonebook/static/js/294.9317ddf4.chunk.js",
+    "static/css/264.cdd85770.chunk.css": "/goit-react-hw-08-phonebook/static/css/264.cdd85770.chunk.css",
+    "static/js/264.a665d85b.chunk.js": "/goit-react-hw-08-phonebook/static/js/264.a665d85b.chunk.js",
     "static/js/216.af4cd5d9.chunk.js": "/goit-react-hw-08-phonebook/static/js/216.af4cd5d9.chunk.js",
-    "static/js/258.b0d61022.chunk.js": "/goit-react-hw-08-phonebook/static/js/258.b0d61022.chunk.js",
+    "static/js/474.42538f0b.chunk.js": "/goit-react-hw-08-phonebook/static/js/474.42538f0b.chunk.js",
     "static/media/myatnii-fon-27.jpg": "/goit-react-hw-08-phonebook/static/media/myatnii-fon-27.5524850ebaaf3ae98fe9.jpg",
     "static/media/gerbera-vetochki-bloknot-fon.jpg": "/goit-react-hw-08-phonebook/static/media/gerbera-vetochki-bloknot-fon.23c81418968881a46154.jpg",
     "index.html": "/goit-react-hw-08-phonebook/index.html",
     "main.a7fe8503.css.map": "/goit-react-hw-08-phonebook/static/css/main.a7fe8503.css.map",
-    "main.01ffec5d.js.map": "/goit-react-hw-08-phonebook/static/js/main.01ffec5d.js.map",
+    "main.0b0aaa3b.js.map": "/goit-react-hw-08-phonebook/static/js/main.0b0aaa3b.js.map",
     "127.5780a379.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/127.5780a379.chunk.js.map",
     "775.de4953c7.chunk.css.map": "/goit-react-hw-08-phonebook/static/css/775.de4953c7.chunk.css.map",
-    "775.e3030356.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/775.e3030356.chunk.js.map",
-    "294.5654e498.chunk.css.map": "/goit-react-hw-08-phonebook/static/css/294.5654e498.chunk.css.map",
-    "294.2ac4e8ca.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/294.2ac4e8ca.chunk.js.map",
-    "264.76e9f93c.chunk.css.map": "/goit-react-hw-08-phonebook/static/css/264.76e9f93c.chunk.css.map",
-    "264.86368e8d.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/264.86368e8d.chunk.js.map",
+    "775.26cfbc3f.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/775.26cfbc3f.chunk.js.map",
+    "294.d95e9149.chunk.css.map": "/goit-react-hw-08-phonebook/static/css/294.d95e9149.chunk.css.map",
+    "294.9317ddf4.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/294.9317ddf4.chunk.js.map",
+    "264.cdd85770.chunk.css.map": "/goit-react-hw-08-phonebook/static/css/264.cdd85770.chunk.css.map",
+    "264.a665d85b.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/264.a665d85b.chunk.js.map",
     "216.af4cd5d9.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/216.af4cd5d9.chunk.js.map",
-    "258.b0d61022.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/258.b0d61022.chunk.js.map"
+    "474.42538f0b.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/474.42538f0b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a7fe8503.css",
-    "static/js/main.01ffec5d.js"
+    "static/js/main.0b0aaa3b.js"
   ]
 }
