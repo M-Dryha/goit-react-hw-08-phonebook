@@ -1,12 +1,13 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Container } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/material/styles';
-import { useState } from 'react';
+import { toast } from 'react-toastify';
+import { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import s from './Login.module.css';
+import { authSelectors } from '../../redux/auth';
 import AuthOperation from '../../redux/auth/auth-operation';
 import Background from '../../pictures/myatnii-fon-27.jpg';
 
@@ -39,9 +40,15 @@ const styles = {
 };
 const Login = () => {
   const dispatch = useDispatch();
-  // const user = useSelector(authSelectors.getUserName);
+  const issLoginError = useSelector(authSelectors.getErrorLogin);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  useEffect(() => {
+    if (issLoginError) {
+      toast.error('Please, check your data');
+    }
+  }, [issLoginError]);
 
   const handleNameChange = e => {
     const { name, value } = e.currentTarget;
@@ -66,25 +73,7 @@ const Login = () => {
   return (
     <Container style={styles.Container}>
       <ThemeProvider theme={theme}>
-        <Box
-          action="submit"
-          component="form"
-          sx={{
-            '& .MuiTextField-root': {
-              m: 1,
-              width: '37ch',
-              borderRadius: '5px',
-              display: 'flex',
-              flexDirection: 'column',
-              w: '350px',
-              margin: '20px auto',
-            },
-          }}
-          noValidate
-          // className={s.form}
-          onSubmit={onLoginSubmit}
-          autoComplete="off"
-        >
+        <form className={s.form} action="submit" onSubmit={onLoginSubmit}>
           <TextField
             label="Email"
             type="email"
@@ -92,6 +81,8 @@ const Login = () => {
             value={email}
             onChange={handleNameChange}
             autoComplete="Email"
+            required
+            sx={{ mb: '15px' }}
           />
           <TextField
             id="2"
@@ -101,6 +92,8 @@ const Login = () => {
             value={password}
             onChange={handleNameChange}
             autoComplete="Password"
+            required
+            sx={{ mb: '15px' }}
           />
           <div className={s.button}>
             <Button
@@ -115,7 +108,7 @@ const Login = () => {
               Log In
             </Button>
           </div>
-        </Box>
+        </form>
       </ThemeProvider>
     </Container>
   );

@@ -9,21 +9,37 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isRefreshingCurrentUser: false,
+  isErrorRegister: null,
+  isErrorLogin: null,
 };
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: {
+    [AuthOperations.register.pending](state, action) {
+      state.isErrorRegister = null;
+    },
     [AuthOperations.register.fulfilled](state, action) {
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLoggedIn = true;
+      state.isErrorRegister = false;
+    },
+    [AuthOperations.register.rejected](state, action) {
+      state.isErrorRegister = action.payload;
+    },
+    [AuthOperations.logIn.pending](state, action) {
+      state.isErrorLogin = null;
     },
     [AuthOperations.logIn.fulfilled](state, action) {
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLoggedIn = true;
     },
+    [AuthOperations.logIn.rejected](state, action) {
+      state.isErrorLogin = action.payload;
+    },
+
     [AuthOperations.logOut.fulfilled](state, action) {
       state.user = { name: null, email: null };
       state.token = null;

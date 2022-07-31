@@ -2,3 +2,12 @@
   width: 150px;
   margin: 10px auto;
 }
+.form {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  margin: 40px auto;
+}

@@ -1,7 +1,5 @@
 import { useState } from 'react';
-// import { ThreeCircles } from 'react-loader-spinner';
 import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { toast } from 'react-toastify';
 import {
@@ -11,7 +9,6 @@ import {
 import s from './contactForm.module.css';
 
 export default function ContactForm() {
-
   const [addContacts] = useAddContactMutation();
   const { data: contacts } = useGetContactsQuery();
   const [name, setName] = useState('');
@@ -61,24 +58,7 @@ export default function ContactForm() {
 
   return (
     <>
-      <Box
-        action="submit"
-        component="form"
-        sx={{
-          '& .MuiTextField-root': {
-            m: 1,
-            width: '37ch',
-            borderRadius: '5px',
-            display: 'flex',
-            flexDirection: 'column',
-            w: '350px',
-            margin: '20px auto',
-          },
-        }}
-        noValidate
-        onSubmit={handleSubmit}
-        autoComplete="off"
-      >
+      <form className={s.form} action="submit" onSubmit={handleSubmit}>
         <TextField
           label="Name"
           type="text"
@@ -86,6 +66,8 @@ export default function ContactForm() {
           value={name}
           onChange={handleNameChange}
           autoComplete="Name"
+          required
+          sx={{ mb: '15px' }}
         />
         <TextField
           label="Number"
@@ -94,19 +76,16 @@ export default function ContactForm() {
           value={number}
           onChange={handleNameChange}
           autoComplete="Number"
+          required
+          sx={{ mb: '15px' }}
         />
 
         <div className={s.button}>
-          <Button
-            type="submit"
-            variant="contained"
-            size="medium"
-            // sx={{ width: 150 }}
-          >
+          <Button type="submit" variant="contained" size="medium">
             Add Contact
           </Button>
         </div>
-      </Box>
+      </form>
     </>
   );
 }
