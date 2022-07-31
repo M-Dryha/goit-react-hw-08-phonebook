@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { Button } from '@mui/material';
 import HouseSidingIcon from '@mui/icons-material/HouseSiding';
 import styled from 'styled-components';
 
@@ -8,7 +9,8 @@ const Link = styled(NavLink)`
   color: white;
   margin-right: 30px;
   &.active {
-    border: 1px solid white;
+    background-color: #f8bbd0;
+    border-radius: 5px;
   }
 `;
 const Navigate = styled.nav`
@@ -20,9 +22,15 @@ const Navigation = () => {
   return (
     <Navigate>
       <Link to="/">
-        <HouseSidingIcon sx={{ color: 'white' }} />
+        <Button type="submit" variant="contained" size="medium">
+          <HouseSidingIcon sx={{ color: 'white' }} />
+        </Button>
       </Link>
-      <Link to="/contacts">My Contacts</Link>
+      <Link to="/contacts">
+        <Button type="submit" variant="contained" size="medium">
+          My Contacts
+        </Button>
+      </Link>
     </Navigate>
   );
 };

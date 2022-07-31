@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { Typography } from '@mui/material';
+import { Typography, Button } from '@mui/material';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import { authSelectors } from '../../redux/auth';
 import styled from 'styled-components';
@@ -9,6 +9,7 @@ import AuthOperation from '../../redux/auth/auth-operation';
 
 const Wrapper = styled.div`
   display: flex;
+  align-items: center;
 `;
 
 const UserMenu = () => {
@@ -28,7 +29,9 @@ const UserMenu = () => {
   return (
     <Wrapper>
       <Typography sx={{ mr: '25px' }}>Welcome,{name} </Typography>
-      <LogoutOutlinedIcon onClick={onLogOut} />
+      <Button type="submit" variant="contained" size="medium">
+        <LogoutOutlinedIcon onClick={onLogOut} />
+      </Button>
     </Wrapper>
   );
 };

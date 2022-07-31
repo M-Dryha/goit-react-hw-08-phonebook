@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { Button } from '@mui/material';
 import styled from 'styled-components';
 
 const Link = styled(NavLink)`
@@ -7,16 +8,29 @@ const Link = styled(NavLink)`
   color: white;
   margin-right: 30px;
   &.active {
-    border: 1px solid white;
+    background-color: #f8bbd0;
+    border-radius: 5px;
   }
+`;
+const Navigate = styled.nav`
+  display: flex;
+  justify-content: ;
 `;
 
 const AuthNav = () => {
   return (
-    <div>
-      <Link to="/register">Register</Link>
-      <Link to="/login">Login</Link>
-    </div>
+    <Navigate>
+      <Link to="/register">
+        <Button type="submit" variant="contained" size="medium">
+          Register
+        </Button>
+      </Link>
+      <Link to="/login">
+        <Button type="submit" variant="contained" size="medium">
+          Login
+        </Button>
+      </Link>
+    </Navigate>
   );
 };
 

@@ -10,9 +10,9 @@ import AuthNav from './AuthNav';
 const theme = createTheme({
   palette: {
     primary: {
-      light: '#f8bbd0',
+      light: '#c2185b',
       main: '#f48fb1',
-      dark: '#002884',
+      dark: '#f8bbd0',
       contrastText: '#fff',
     },
     secondary: {
